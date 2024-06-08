@@ -6,7 +6,6 @@
 
 ## Post Installation Commands
 
-> php artisan fortify:install
 > php artisan migrate
 
 ## Packages used 
