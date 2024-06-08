@@ -8,3 +8,8 @@
 
 > php artisan fortify:install
 > php artisan migrate
+
+## Packages used 
+
+- Fortify
+- Laravel permissions
