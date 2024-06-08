@@ -27,6 +27,7 @@ class UserServiceProvider extends ServiceProvider
     # Publish assets
     $this->publishes([
       __DIR__.'/../../config/fortify.php' => config_path('fortify.php'),
+      __DIR__.'/../../config/permission.php' => config_path('permission.php'),
     ], 'config');
   }
 }
