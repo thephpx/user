@@ -30,7 +30,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Thephpx\\User\\Providers\\UserServiceProvider"
+                "Thephpx\\User\\Providers\\UserServiceProvider",
+                "Thephpx\\User\\Providers\\FortifyServiceProvider"
             ]
         }
     },

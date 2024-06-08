@@ -23,5 +23,10 @@ class UserServiceProvider extends ServiceProvider
 
     # Load migration tables
     $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+
+    # Publish assets
+    $this->publishes([
+      __DIR__.'/../../config/fortify.php' => config_path('fortify.php'),
+    ], 'config');
   }
 }
