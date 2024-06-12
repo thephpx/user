@@ -16,7 +16,7 @@ class Dashboard extends AdminController
     public function __invoke(Request $request)
     {
         $data = $this->data;
-
+        
         return view('User::tablerui.dashboard', compact('data'));
     }
 }
