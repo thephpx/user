@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('last_name')
                 ->after('first_name')
                 ->nullable();
+            $table->dropColumn(['name']);
         });
     }
 
@@ -29,6 +30,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->string('name')
+                ->after('id')
+                ->nullable();
             $table->dropColumn([
                 'first_name',
                 'last_name',
