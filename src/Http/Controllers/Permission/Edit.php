@@ -29,6 +29,8 @@ class Edit extends AdminController
             
         }
 
+        $data['row'] = &$permission;
+
         return view('User::tablerui.permission.edit', compact('data'));
     }
 }
