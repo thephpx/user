@@ -8,6 +8,15 @@
                     Permissions
                 </h2>
             </div>
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                    <a href="{{route('permission.create')}}" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                        data-bs-target="#modal-report">
+                        <i class="ti ti-key"></i>
+                        Create New Permission
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="page-body">
@@ -28,8 +37,8 @@
                                     <tr>
                                         <td>{{$row->name}}</td>
                                         <td width="10%">
-                                            <a class="btn btn-sm" role="button" href="{{route('permission.edit', $row->id)}}">Edit</a>
-                                            <a class="btn btn-sm" role="button" href="#">Remove</a>
+                                            <a class="btn btn-sm btn-secondary" role="button" href="{{route('permission.edit', $row->id)}}">Edit</a>
+                                            <a class="btn btn-sm btn-danger" role="button" href="#">Remove</a>
                                         </td>
                                     </tr>
                                     @endforeach

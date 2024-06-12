@@ -8,6 +8,15 @@
                     Roles
                 </h2>
             </div>
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                    <a href="{{route('role.create')}}" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                        data-bs-target="#modal-report">
+                        <i class="ti ti-circles"></i>
+                        Create New Role
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="page-body">
@@ -28,9 +37,9 @@
                                     <tr>
                                         <td>{{$row->name}}</td>
                                         <td width="15%">
-                                            <a class="btn btn-sm" role="button" href="{{route('role.edit', $row->id)}}">Edit</a>
-                                            <a class="btn btn-sm" role="button" href="#">Remove</a>
-                                            <a class="btn btn-sm" role="button" href="#">Matrix</a>
+                                            <a class="btn btn-sm btn-secondary" role="button" href="{{route('role.edit', $row->id)}}">Edit</a>
+                                            <a class="btn btn-sm btn-danger" role="button" href="#">Remove</a>
+                                            <a class="btn btn-sm btn-success" role="button" href="#">Matrix</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -8,6 +8,15 @@
                     Users
                 </h2>
             </div>
+            <div class="col-auto ms-auto d-print-none">
+                <div class="btn-list">
+                    <a href="{{route('user.create')}}" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
+                        data-bs-target="#modal-report">
+                        <i class="ti ti-user"></i>
+                        Create New User
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="page-body">
@@ -28,19 +37,19 @@
                                 </thead>
                                 <tbody>
                                     @foreach($data['rows'] as $row)
-                                    <tr>
-                                        <td>{{$row->first_name}}</td>
-                                        <td>{{$row->last_name}}</td>
-                                        <td class="text-secondary">
-                                            {{$row->email}}
-                                        </td>
-                                        <td class="text-secondary">
-                                            {{$row->phone}}
-                                        </td>
-                                        <td>
-                                            <a href="#">Edit</a>
-                                        </td>
-                                    </tr>
+                                        <tr>
+                                            <td>{{$row->first_name}}</td>
+                                            <td>{{$row->last_name}}</td>
+                                            <td class="text-secondary">
+                                                {{$row->email}}
+                                            </td>
+                                            <td class="text-secondary">
+                                                {{$row->phone}}
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-sm btn-secondary" href="#">Edit</a>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
