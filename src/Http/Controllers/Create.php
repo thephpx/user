@@ -38,6 +38,6 @@ class Create extends AdminController
             \Facades\Thephpx\User\Models\User::create($record);            
         }
 
-        return view('User::tablerui.create', compact('data'));
+        return view('User::tablerui.user.create', compact('data'));
     }
 }

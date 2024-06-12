@@ -19,6 +19,6 @@ class Index extends AdminController
 
         $data['rows'] = \Facades\Thephpx\User\Models\User::paginate(10);
 
-        return view('User::tablerui.index', compact('data'));
+        return view('User::tablerui.user.index', compact('data'));
     }
 }

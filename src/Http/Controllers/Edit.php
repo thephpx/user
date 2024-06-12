@@ -37,6 +37,6 @@ class Edit extends AdminController
             $user->fill($record)->save();            
         }
 
-        return view('User::tablerui.edit', compact('data'));
+        return view('User::tablerui.user.edit', compact('data'));
     }
 }
