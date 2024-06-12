@@ -11,4 +11,13 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends BaseUser
 {
     use HasFactory, Notifiable, HasRoles;
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+    ];
+
+    
 }
