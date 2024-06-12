@@ -51,31 +51,31 @@ class FortifyServiceProvider extends ServiceProvider
     private function setViews()
     {
         Fortify::registerView(function () {
-            return view('User::auth.register');
+            return view('User::tablerui.auth.register');
         });
 
         Fortify::loginView(function () {
-            return view('User::auth.login');
+            return view('User::tablerui.auth.login');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
-            return view('User::auth.forgot-password');
+            return view('User::tablerui.auth.forgot-password');
         });
 
         Fortify::resetPasswordView(function (Request $request) {
-            return view('User::auth.reset-password', ['request' => $request]);
+            return view('User::tablerui.auth.reset-password', ['request' => $request]);
         });
 
         Fortify::verifyEmailView(function () {
-            return view('User::auth.verify-email');
+            return view('User::tablerui.auth.verify-email');
         });
 
         Fortify::confirmPasswordView(function () {
-            return view('User::auth.confirm-password');
+            return view('User::tablerui.auth.confirm-password');
         });
 
         Fortify::twoFactorChallengeView(function () {
-            return view('User::auth.two-factor-challenge');
+            return view('User::tablerui.auth.two-factor-challenge');
         });
     }
 }
