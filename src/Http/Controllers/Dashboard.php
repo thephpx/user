@@ -9,18 +9,14 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AdminController;
 
-class Remove extends AdminController
+class Dashboard extends AdminController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
         
-    public function __invoke(Request $request, \Thephpx\User\Models\User $user)
+    public function __invoke(Request $request)
     {
         $data = $this->data;
 
-        if($request->isMethod('delete'))
-        {
-            
-        }
-
+        return view('User::tablerui.dashboard', compact('data'));
     }
 }

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/dashboard', \Thephpx\User\Http\Controllers\Dashboard::class)->name('dashboard.index');
+
 Route::prefix('role')->middleware(['web','auth'])->group(function () {
 
 	Route::get('/', \Thephpx\User\Http\Controllers\Role\Index::class)->name('role.index');
