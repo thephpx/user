@@ -11,7 +11,8 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends BaseUser
 {
     use HasFactory, Notifiable, HasRoles;
-
+    
+    protected $guard_name = 'web';
     protected $fillable = [
         'first_name',
         'last_name',
