@@ -26,7 +26,9 @@ class UserServiceProvider extends ServiceProvider
 
     # Load config
     $this->mergeConfigFrom(__DIR__.'/../../config/config.php', 'User');
-
+    
+    \Config::set("auth.providers.users.model","Thephpx\User\Models\User");
+    
     # Publish assets
     $this->publishes([
       __DIR__.'/../../config/fortify.php' => config_path('fortify.php'),
@@ -53,11 +55,11 @@ class UserServiceProvider extends ServiceProvider
       $navigations = [];
     }
 
-    $navigations[] = ['type'=>'route','label'=>'Dashboard','link'=>'dashboard.index','icon'=>'ti-home'];
-    $navigations[] = ['type'=>'dropdown','label'=>'User Management','link'=>'javascript:;','icon'=>'ti-users-group','items'=>[
-      ['type'=>'route','label'=>'Users','link'=>'user.index','icon'=>'ti-users-group'],
-      ['type'=>'route','label'=>'Roles','link'=>'role.index','icon'=>'ti-circles'],
-      ['type'=>'route','label'=>'Permissions','link'=>'permission.index','icon'=>'ti-key']
+    $navigations[] = ['type'=>'route','role'=>['member','admin'],'label'=>'Dashboard','link'=>'dashboard.index','icon'=>'ti-home'];
+    $navigations[] = ['type'=>'dropdown','role'=>'admin','label'=>'User Management','link'=>'javascript:;','icon'=>'ti-users-group','items'=>[
+      ['type'=>'route','role'=>'admin','label'=>'Users','link'=>'user.index','icon'=>'ti-users-group'],
+      ['type'=>'route','role'=>'admin','label'=>'Roles','link'=>'role.index','icon'=>'ti-circles'],
+      ['type'=>'route','role'=>'admin','label'=>'Permissions','link'=>'permission.index','icon'=>'ti-key']
     ]];
 
     \Illuminate\Support\Facades\Session::put('navigations', $navigations);
