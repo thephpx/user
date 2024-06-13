@@ -26,8 +26,10 @@
                                     <div class="mb-3">
                                         <label class="form-label required">Name</label>
                                         <div>
-                                            <input type="text" name="name" value="{{old('name', $data['row']->name??'')}}" class="form-control" aria-describedby="permissionName"
-                                                placeholder="Enter permission name"/>
+                                            <input type="text" name="name" value="{{old('name', $data['row']->name??'')}}" class="form-control @if($errors->has('name')) is-invalid @endif" placeholder="Enter permission name"/>
+                                            @if($errors->has('name'))
+                                            <div class="invalid-feedback">{{$errors->first('name')}}</div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
