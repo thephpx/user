@@ -22,12 +22,11 @@ class Create extends AdminController
             $request->validate([
                 'first_name'=>'required',
                 'last_name'=>'required',
-                'phone'=>'required',
                 'email'=>'required',
                 'password'=>'required|confirmed',
             ]);
 
-            $record = $request->only(['first_name','last_name','phone','email','password']);
+            $record = $request->only(['first_name','last_name','email','password']);
 
             if(!empty($record['password'])){
                 $record['password'] = \Hash::make($record['password']);
@@ -35,7 +34,15 @@ class Create extends AdminController
                 $record['password'] = $record['first_name'].date("Y");
             }
 
-            \Facades\Thephpx\User\Models\User::create($record);     
+            $newUser = \Facades\Thephpx\User\Models\User::create($record);   
+
+            if(!empty($request->role) && auth()->user()->hasRole('admin'))
+            {
+                $newUser->assignRole($request->role);
+            } else {
+                $newUser->assignRole('member');
+            }
+            
             return redirect()->route('user.index')->with('success_message','User created successfully!');       
         }
 

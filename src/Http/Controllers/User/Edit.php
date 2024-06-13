@@ -22,11 +22,10 @@ class Edit extends AdminController
             $request->validate([
                 'first_name'=>'required',
                 'last_name'=>'required',
-                'phone'=>'required',
                 'email'=>'required'
             ]);
 
-            $record = $request->only(['first_name','last_name','phone','email','password']);
+            $record = $request->only(['first_name','last_name','email','password']);
 
             if(!empty($record['password'])){
                 $record['password'] = \Hash::make($record['password']);
@@ -34,7 +33,13 @@ class Edit extends AdminController
                 unset($record['password']);
             }
 
-            $user->fill($record)->save();    
+            $user->fill($record)->save(); 
+
+            if(!empty($request->role) && auth()->user()->hasRole('admin'))
+            {
+                $user->assignRole($request->role);
+            }
+
             return redirect()->route('user.index')->with('success_message','User updated successfully!');        
         }
 
