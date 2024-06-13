@@ -33,6 +33,10 @@ class UserServiceProvider extends ServiceProvider
       __DIR__.'/../../config/permission.php' => config_path('permission.php'),
     ], 'config');
 
+    $this->publishes([
+      __DIR__.'/../../database/seeders/ThephpxUserDatabaseSeeder.php' => database_path('seeders/ThephpxUserDatabaseSeeder.php'),
+    ], 'seeder');
+
     # Register package
     $packages = \Illuminate\Support\Facades\Session::get('packages');
     if(empty($packages)){
