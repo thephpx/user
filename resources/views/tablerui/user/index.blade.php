@@ -10,8 +10,7 @@
             </div>
             <div class="col-auto ms-auto d-print-none">
                 <div class="btn-list">
-                    <a href="{{route('user.create')}}" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
-                        data-bs-target="#modal-report">
+                    <a href="{{route('user.create')}}" class="btn btn-primary d-none d-sm-inline-block">
                         <i class="ti ti-user"></i>
                         Create New User
                     </a>
