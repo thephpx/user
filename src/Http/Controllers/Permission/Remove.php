@@ -19,8 +19,16 @@ class Remove extends AdminController
 
         if($request->isMethod('delete'))
         {
-            
+            if(auth()->user()->hasRole('admin'))
+            {
+                $permission->forceDelete();
+
+                return redirect()->route('permission.index')->with('success_message','Permission removed successfully!');
+            }
+
+            return redirect()->route('permission.index')->with('warning_message','Permission could not be removed, permission denined!');
         }
 
+        return redirect()->route('permission.index')->with('warning_message','Permission could not be removed!');
     }
 }

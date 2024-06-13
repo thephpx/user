@@ -26,6 +26,7 @@ class Edit extends AdminController
             $record = $request->only(['name']);
 
             $permission->fill($record)->save();
+            return redirect()->route('permission.index')->with('success_message','Permission updated successfully!');  
             
         }
 

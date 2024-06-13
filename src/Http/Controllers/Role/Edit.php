@@ -26,6 +26,7 @@ class Edit extends AdminController
             $record = $request->only(['name']);
 
             $role->fill($record)->save();
+            return redirect()->route('role.index')->with('success_message','Role updated successfully!');  
             
         }
 

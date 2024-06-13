@@ -26,6 +26,7 @@ class Create extends AdminController
             $record = $request->only(['name']);
 
             \Facades\Thephpx\User\Models\Role::create($record);
+            return redirect()->route('role.index')->with('success_message','Role created successfully!');  
         }
 
         return view('User::tablerui.role.create', compact('data'));

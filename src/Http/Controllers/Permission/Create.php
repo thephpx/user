@@ -25,7 +25,8 @@ class Create extends AdminController
 
             $record = $request->only(['name']);
 
-            \Facades\Thephpx\User\Models\Permission::create($record);            
+            \Facades\Thephpx\User\Models\Permission::create($record);      
+            return redirect()->route('permission.index')->with('success_message','Permission created successfully!');        
         }
 
         return view('User::tablerui.permission.create', compact('data'));
