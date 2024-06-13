@@ -1,6 +1,6 @@
 <?php
 
-namespace Thephpx\User\Http\Controllers;
+namespace Thephpx\User\Http\Controllers\User;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -35,7 +35,8 @@ class Create extends AdminController
                 $record['password'] = $record['first_name'].date("Y");
             }
 
-            \Facades\Thephpx\User\Models\User::create($record);            
+            \Facades\Thephpx\User\Models\User::create($record);     
+            return redirect()->route('user.index')->with('success_message','User created successfully!');       
         }
 
         return view('User::tablerui.user.create', compact('data'));

@@ -1,6 +1,6 @@
 <?php
 
-namespace Thephpx\User\Http\Controllers;
+namespace Thephpx\User\Http\Controllers\User;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -34,7 +34,8 @@ class Edit extends AdminController
                 unset($record['password']);
             }
 
-            $user->fill($record)->save();            
+            $user->fill($record)->save();    
+            return redirect()->route('user.index')->with('success_message','User updated successfully!');        
         }
 
         return view('User::tablerui.user.edit', compact('data'));
