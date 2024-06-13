@@ -44,6 +44,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{$data['rows']->links()}}
                         </div>
                     </div>
                 </div>
